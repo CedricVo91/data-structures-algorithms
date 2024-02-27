@@ -1,0 +1,20 @@
+Task 0:
+- O(n) = 1, as we access entries of a list of lists and knowing the index already its a single, costant operation per list of lists, regardless of how big n gets
+
+Task 1:
+- O(n) = m*n + p*n where m are number of entries in texts, p are number of entries in calls. for each list in the list of lists (= called texts), we access the first entry of each list and check if it is in a seperate list called unique_numbers. If it is not in unique numbers, we add it to unique numbers. We then repeat it for the second entry of each list. in worst case for all lists we check each lists entry in unique numbers. We do that for both calls and texts list of lists. Worst case stays o(n^2).
+
+Task 2: 
+- O(n) = O(n), as for each entry in list of lists called calls, we perform two single operation accessing a dictionary via known key. Following in a sequential manner, we iterate two times over the 2n entries in the dic to find the maximum. Hence, O(n + m) or worst case O(n).
+
+Task 3:
+A)
+- O(n) = O(n * m), where m is the number of entries in container and n is the number of entries in calls or also called O(n^2) in worst case. for each list in the list of lists called calls, we have an indexed check of O(n) = 1,  followed by 3 constant operations of O(n) =1, and then check if its in each of m entries in a seperate list called container. Hence, O(n*n) i.e. O(n^2). Then we sort the final container list with O(n) = nlog(n). Finally, we print each of the n entries of container. O(n). Final O(n) = O(n+n+n+n+n^2+nlog(n)+n) and worst case O(n) = n^2
+
+B)
+
+- O(n) =  O(m) for n entries in a list "container" we do 2 constant operations and then do a single operation. O(n) = n*2 + 1, worst case O(n) = n
+
+Task 4:
+
+- O(n) = O(n^2), for each entry in a list of lists called calls, we first check if first list is in a new list of lists of size calls, Hence, O(n)= n*n and then followed by a second quadratique operation of O(n) = n*m and so on. Also we have a sort() operation in the end of the code, but we can determine worst case already as O(n^2). 
