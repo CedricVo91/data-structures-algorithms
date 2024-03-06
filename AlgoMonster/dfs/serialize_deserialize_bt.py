@@ -69,3 +69,32 @@ def deserialize_iter(s):
         return Node(root_val, left, right)
 
     return dfs(nodes_list)
+
+
+def deserialize_via_index(s):
+    # get a list with the nodes values (str type) without the ","
+    nodes_list = s.split(" ")  # creates list automatically
+    i = 0
+
+    # run dfs on the nodes defined in the nodes_list
+    def dfs(nodes_list, i):
+
+        root_val = nodes_list[i]
+        i = i + 1
+        if root_val == "x" or root_val == "X":
+            return None, i
+        else:
+            root_val = int(root_val)
+
+        left, i = dfs(nodes_list, i)
+
+        right, i = dfs(nodes_list, i)
+
+        return Node(root_val, left, right), i
+
+    # so that solution still works in our implementation, we need to give the program the tree, not the index
+    # tree is basically a linked lists of the nodes all pointing to each other in right sequence
+    tree, _ = dfs(
+        nodes_list, i
+    )  # give us the node(root_val, left,right) and the left and right point to the right children
+    return tree
