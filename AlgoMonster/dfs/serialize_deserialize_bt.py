@@ -90,6 +90,7 @@ def deserialize_via_index(s):
 
         right, i = dfs(nodes_list, i)
 
+        # we have to return "i" so that when we backtrack we update our initial "i" of the current function with the one of the chil node
         return Node(root_val, left, right), i
 
     # so that solution still works in our implementation, we need to give the program the tree, not the index
