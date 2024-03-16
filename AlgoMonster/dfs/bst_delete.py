@@ -24,7 +24,8 @@ def bst_delete(tree: Node, val: int) -> Node:
             node_to_be_deleted = tree
 
             # get successor if there
-            successor = tree.right.left
+            if tree.right:
+                successor = tree.right
             while successor.left is not None:
                 successor = successor.left
             return node_to_be_deleted, successor
